@@ -9,12 +9,12 @@ function Header({}: Props) {
         <div className='flex flex-row items-center'>
             {/* Social Icons */}
             <SocialIcon
-                url="https://www.youtube.com"
+                url="https://www.github.com"
                 fgColor='gray'
                 bgColor='transparent'
             />
             <SocialIcon
-                url="https://www.youtube.com"
+                url="https://www.linkedin.com"
                 fgColor='gray'
                 bgColor='transparent'
             />
