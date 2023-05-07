@@ -7,7 +7,7 @@ type Props = {};
 
 function Header({}: Props) {
   return (
-    <header>
+    <header className='sticky top-0 p-5'>
       <AnimatedIcons />
     </header>
   );

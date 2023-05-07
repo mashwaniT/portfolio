@@ -1,24 +1,26 @@
-// index.tsx
 import React from 'react';
 import Image from 'next/image';
 import Head from "next/head";
 import Header from '../components/Header';
 import dynamic from 'next/dynamic';
 import '../src/app/globals.css'
+import Hero from '../components/Hero';
 
 const AnimatedIcons = dynamic(() => import('../components/AnimatedIcons'), { ssr: false });
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Tahas Portfolio</title>
-      </Head>
-      <main>
-        <div>
-          <Header />
+    <div className='bg-[rgb(36,36,36)] text-white h-screen z-0 snap-y snap-mandatory overflow-scroll'>
+        <Head>
+            <title>Tahas Portfolio</title>
+        </Head>
+
+        <Header />
 
           {/* Build Hero */}
+        <section id='hero' className='snap-center'>
+            <Hero/>
+        </section>
 
           {/* Build About */}
 
@@ -29,8 +31,6 @@ export default function Home() {
           {/* Build Projects */}
 
           {/* Build Contact Me */}
-        </div>
-      </main>
-    </>
-  )
-}
+    </div>
+  );
+};
