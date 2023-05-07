@@ -21,7 +21,7 @@ function Hero({}: Props) {
         <BackgroundCircles />
         <img
             className='relative rounded-full h-32 w-32 mx-auto object-cover'
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWsr_S2htl0pf4akyoyx6vDh9n_6DcwQq2MiFl4WzYFA&s'
+            src='https://media.licdn.com/dms/image/D5603AQGkhxgEDG_nvg/profile-displayphoto-shrink_800_800/0/1682739194662?e=1689206400&v=beta&t=wmjdQ3hNCZvSKxJ7gooS63LChsPyjiFC_Vo6n2P3Ujw'
             alt='batman'
         />
         <div className='z-20'>
