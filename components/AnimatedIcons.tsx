@@ -17,7 +17,9 @@ function AnimatedIcons() {
           scale: 1,
         }}
         transition={{
-          duration: 1.5
+          ease: 'easeInOut',
+          duration: 2.5,
+          delay: 0.5,
         }}
         className="flex flex-row items-center"
       >
@@ -40,7 +42,11 @@ function AnimatedIcons() {
               opacity: 1,
               scale: 1,
           }}
-          transition={{ duration: 1.5 }}
+          transition={{
+            ease: 'easeInOut',
+            duration: 2.5,
+            delay: 0.5,
+          }}
       
           className='flex flex-row items-center text-gray-300 cursor-pointer'>
           <SocialIcon

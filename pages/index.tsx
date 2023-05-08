@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import dynamic from 'next/dynamic';
 import '../src/app/globals.css'
 import Hero from '../components/Hero';
+import About from '../components/About';
 
 const AnimatedIcons = dynamic(() => import('../components/AnimatedIcons'), { ssr: false });
 
@@ -18,11 +19,14 @@ export default function Home() {
         <Header />
 
           {/* Build Hero */}
-        <section id='hero' className='snap-center'>
+        <section id='hero' className='snap-start'>
             <Hero/>
         </section>
 
           {/* Build About */}
+        <section id='about' className='snap-center'>
+            <About />
+        </section>
 
           {/* Build Experience */}
 
