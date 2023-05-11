@@ -21,8 +21,8 @@ function Skill({ directionLeft }: Props) {
                 opacity: 1,
                 x: 0
             }}
-            src='https://e7.pngegg.com/pngimages/520/669/png-clipart-c-logo-c-programming-language-computer-icons-computer-programming-programming-miscellaneous-blue-thumbnail.png'
-            className="rounded-full border border-x-gray-500 object-cover w-24 h-24 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out">
+            src='https://cdn.iconscout.com/icon/free/png-512/free-typescript-1174965.png?f=avif&w=512'
+            className="rounded-full border border-x-gray-700 object-cover w-24 h-24 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out">
 
         </motion.img>
     </div>
