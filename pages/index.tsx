@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic';
 import '../src/app/globals.css'
 import Hero from '../components/Hero';
 import About from '../components/About';
+import WorkExperience from '../components/WorkExperience';
+import Skills from '../components/Skills';
 
 const AnimatedIcons = dynamic(() => import('../components/AnimatedIcons'), { ssr: false });
 
@@ -29,8 +31,14 @@ export default function Home() {
         </section>
 
           {/* Build Experience */}
+        <section id='experience' className='snap-center'>
+            <WorkExperience />
+        </section>
 
           {/* Build Skills */}
+        <section id='skills' className='snap-start'>
+            <Skills />
+        </section>
 
           {/* Build Projects */}
 
