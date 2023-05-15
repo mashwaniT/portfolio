@@ -33,7 +33,7 @@ function About({}: Props) {
             whileInView={{opacity:1, x: 0}}
             viewport={{ once: true }}
             src='https://media.licdn.com/dms/image/D5603AQGkhxgEDG_nvg/profile-displayphoto-shrink_400_400/0/1682739194662?e=1689206400&v=beta&t=MzJCyt947UNjMrfN-8VHE1WlLQpFWqGXPnQC8ip-W-4'
-            className='mt-10 md:mt-0 md:-mb-20 xl:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover
+            className='mt-10 md:mt-0 md: xl: flex-shrink-0 w-56 h-56 rounded-full object-cover
             md:rounded-lg md:w-64 md:h-95 xl:w-[300px] xl:h-[400px]'
         />
 

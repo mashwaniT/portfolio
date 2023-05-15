@@ -3,9 +3,14 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles';
 import Link from 'next/link';
 
-type Props = {}
+type Props = {
+    aboutRef: React.RefObject<HTMLElement>;
+    experienceRef: React.RefObject<HTMLElement>;
+    skillsRef: React.RefObject<HTMLElement>;
+    projectsRef: React.RefObject<HTMLElement>;
+}
 
-function Hero({}: Props) {
+function Hero({aboutRef, experienceRef, skillsRef, projectsRef}: Props) {
     const [text, count] = useTypewriter({
         words: [
             "how fast can i type this sentence",
@@ -15,6 +20,11 @@ function Hero({}: Props) {
         loop: true,
         delaySpeed: 2000,
     });
+
+    const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
+        };
+    
 
   return (
     <div className='relative h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
@@ -34,18 +44,10 @@ function Hero({}: Props) {
         </h1>
 
         <div className='pt-5'>
-            <Link href='about'>
-                <button className='heroButton'>About</button>
-            </Link>
-            <Link href="experience">
-                <button className='heroButton'>Experience</button>
-            </Link>
-            <Link href="skills">
-                <button className='heroButton'>Skills</button>
-            </Link>
-            <Link href="projects">
-                <button className='heroButton'>Projects</button>
-            </Link>
+            <button className='heroButton' onClick={() => scrollToSection(aboutRef)}>About</button>
+            <button className='heroButton' onClick={() => scrollToSection(experienceRef)}>Experience</button>
+            <button className='heroButton' onClick={() => scrollToSection(skillsRef)}>Skills</button>
+            <button className='heroButton' onClick={() => scrollToSection(projectsRef)}>Projects</button>
             
         </div>
 
