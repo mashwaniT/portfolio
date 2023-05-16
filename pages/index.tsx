@@ -19,11 +19,9 @@ export default function Home() {
     const skillsRef = React.useRef(null);
     const projectsRef = React.useRef(null);
     
-    
-
 
   return (
-    <div className='bg-[rgb(36,36,36)] text-white h-screen z-0 snap-y snap-mandatory overflow-y-scroll overflow-x-hidden'>
+    <div className='bg-[rgb(0,0,0)] text-white h-screen z-0 snap-y snap-mandatory overflow-y-scroll overflow-x-hidden scrollbar scrollbar-track-gray-400/10 scrollbar-thumb-[#f7ab0a] scrollbar-thumb'>
         <Head>
             <title>Tahas Portfolio</title>
         </Head>
