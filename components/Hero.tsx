@@ -13,7 +13,7 @@ type Props = {
 function Hero({aboutRef, experienceRef, skillsRef, projectsRef}: Props) {
     const [text, count] = useTypewriter({
         words: [
-            "how fast can i type this sentence",
+            "talal chess goat",
             "welcome-to-my-website.tsx",
             "<aspiring developer />",
         ],

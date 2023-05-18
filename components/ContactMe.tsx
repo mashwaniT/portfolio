@@ -33,7 +33,7 @@ function ContactMe({}: Props) {
 
         <div className='flex flex-col space-y-5 pt-40'>
             <h4 className='text-4xl font-semibold text-center'>
-                I got just what you need.{" "}
+                I got what you need.{" "}
                 <span className='decoration-[#f7ab0a] underline animate-pulse'>Lets talk.</span>
 
             </h4>
