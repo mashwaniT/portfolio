@@ -33,15 +33,15 @@ function ContactMe({}: Props) {
 
         <div className='flex flex-col space-y-5 pt-40'>
             <h4 className='text-4xl font-semibold text-center'>
-                I got what you need.{" "}
-                <span className='decoration-[#f7ab0a] underline animate-pulse'>Lets talk.</span>
-
+                {/* I got what you need.{" "}
+                <span className='decoration-[#f7ab0a] underline animate-pulse'>Lets talk.</span> */}
+                <span className='decoration-[#f7ab0a] underline animate-pulse'>Lets chat!</span>
             </h4>
 
             <div className='space-y-5'>
                 <div className='flex items-center space-x-5 justify-center'>
                     <PhoneIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse'/>
-                    <p className='text-xl'>+12267925657</p>
+                    <p className='text-xl'>+1 (226) 792-5657</p>
                 </div>
                 <div className='flex items-center space-x-5 justify-center'>
                     <EnvelopeIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse'/>
@@ -56,13 +56,13 @@ function ContactMe({}: Props) {
             
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 w-fit mx-auto'>
                 <div className='flex space-x-2'>
-                    <input {...register('name')} placeholder="Name" className="contactInput" type="text" />
-                    <input {...register('email')} placeholder="Email" className="contactInput" type="email" />
+                    <input {...register('name')} placeholder="Name" className="contactInput uppercase text-sm" type="text" />
+                    <input {...register('email')} placeholder="Email" className="contactInput uppercase text-sm" type="email" />
                 </div>
 
-                <input {...register('subject')} placeholder="Subject" className="contactInput" type="text" />
+                <input {...register('subject')} placeholder="Subject" className="contactInput uppercase text-sm" type="text" />
 
-                <textarea {...register('message')} placeholder="Message" className="contactInput" ></textarea>
+                <textarea {...register('message')} placeholder="Message" className="contactInput uppercase text-sm" ></textarea>
                 <button
                     type='submit' 
                     className='bg-[#f7ab0a] py-5 px-10 rounded-md text-gray-700 font-bold text-xl'>Submit</button>

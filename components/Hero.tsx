@@ -2,6 +2,8 @@ import React from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles';
 import Link from 'next/link';
+import Animation from './Animation';
+
 
 type Props = {
     aboutRef: React.RefObject<HTMLElement>;
@@ -13,8 +15,8 @@ type Props = {
 function Hero({aboutRef, experienceRef, skillsRef, projectsRef}: Props) {
     const [text, count] = useTypewriter({
         words: [
-            "talal chess goat",
-            "welcome-to-my-website.tsx",
+            "Hi, I'm Taha",
+            "computer science",
             "<aspiring developer />",
         ],
         loop: true,
@@ -28,9 +30,10 @@ function Hero({aboutRef, experienceRef, skillsRef, projectsRef}: Props) {
 
   return (
     <div className='relative h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
+        {/* <Animation className="absolute inset-0 z-0 mt-20" /> new */}
         <BackgroundCircles />
         <img
-            className='relative rounded-full h-32 w-32 mx-auto object-cover'
+            className='relative rounded-full h-32 w-32  mx-auto object-cover'
             src='https://media.licdn.com/dms/image/D5603AQGkhxgEDG_nvg/profile-displayphoto-shrink_800_800/0/1682739194662?e=1689206400&v=beta&t=wmjdQ3hNCZvSKxJ7gooS63LChsPyjiFC_Vo6n2P3Ujw'
             alt='batman'
         />

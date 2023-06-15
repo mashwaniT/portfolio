@@ -9,6 +9,7 @@ import WorkExperience from '../components/WorkExperience';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import ContactMe from '../components/ContactMe';
+import CurrentEndeavors from '../components/CurrentEndeavors';
 
 // const AnimatedIcons = dynamic(() => import('../components/AnimatedIcons'), { ssr: false });
 
@@ -50,8 +51,8 @@ export default function Home() {
         </section>
 
           {/* Build Projects */}
-        <section ref={projectsRef} id='projects' className='snap-center'>
-            <Projects />
+        <section ref={projectsRef} id='projects' className='snap-start'>
+            <CurrentEndeavors />
         </section>
 
           {/* Build Contact Me */}

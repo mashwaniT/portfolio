@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion'
-import React from 'react'
-import ExperienceCard from './ExperienceCard'
+import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
+import ExperienceCard from "./ExperienceCard";
+import React from "react";
+import { useInView } from "react-intersection-observer";
 
 interface Experience {
     id: string;
@@ -18,7 +20,7 @@ const experienceData: Experience[] = [
         title: "Personal Portfolio Website",
         description: "A web app using React Typescript with NextJS for SSR and SEO.",
         stack: ["typescript", "react", "nextjs", "tailwindcss"],
-        githublink: "github.com/mashwaniT/portfolio",        
+        githublink: "https://github.com/mashwaniT/portfolio",        
     },
     {
         id: "02",
@@ -26,7 +28,7 @@ const experienceData: Experience[] = [
         title: "Movie Recommender System",
         description: "Machine learning algorithm that recommends similar movies based on your favourite.",
         stack: ["python", "scikit-learn", "numpy", "pandas"],
-        githublink: "github.com/mashwaniT/portfolio",    
+        githublink: "https://github.com/mashwaniT/movie-recommender-system",    
     },
     {
         id: "03",
@@ -34,47 +36,59 @@ const experienceData: Experience[] = [
         title: "Inscription",
         description: "Submission for RUHacks2021, made a cloud based note-taking app.",
         stack: ["typescript", "react", "firebase", "firestore"],
-        githublink: "github.com/mashwaniT/portfolio",        
+        githublink: "https://github.com/mashwaniT/Inscription",        
     },
-    {
-        id: "03",
-        date: "2021-05",
-        title: "Inscription",
-        description: "Submission for RUHacks2021, made a cloud based note-taking app.",
-        stack: ["typescript", "react", "firebase", "firestore"],
-        githublink: "github.com/mashwaniT/portfolio",        
-    }
+    
 ];
 
 type Props = {}
 
-function WorkExperience({}: Props) {
-    
-  return (
-    <motion.div
-        initial={{
-            opacity: 0
-        }}
-        whileInView={{
-            opacity: 1
-        }}
-        transition={{
-            duration: 1.5
-        }}
-        className='h-full py-20 flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly align-middle mx-auto items-center'>
-        <h3 className='uppercase absolute top-24  tracking-[20px] text-gray-500 text-2xl'>
+
+const WorkExperience = () => {
+    const cardsRefs = useRef([]);
+    cardsRefs.current = [];
+  
+    const addToRefs = (el) => {
+      if (el && !cardsRefs.current.includes(el)) {
+        cardsRefs.current.push(el);
+      }
+    };
+
+    const [ref, inView] = useInView({
+        triggerOnce: false,
+    })
+  
+    useEffect(() => {
+        if (inView) {
+            gsap.from(cardsRefs.current, {
+                opacity: 0,
+                duration: 1,
+                ease: "power1.out",
+                stagger: 0.4
+              });
+        }
+      
+    }, [inView]);
+  
+    return (
+        <div
+          ref={ref}
+          className='min-h-screen flex flex-col overflow-hidden justify-start items-center mx-auto'>
+          <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl z-10 text-center mt-24'>
             Experience
-        </h3>
-
-        <div className='py-20 mb-52 xl:mt-24 lg:mt-24  w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 p-10'>
-            {/* Experience card */}
-            {experienceData.map((experience) => (
-                <ExperienceCard key={experience.id} {...experience} />
+          </h3>
+          <div className=' w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 p-14'>
+            {experienceData.map((experience, index) => (
+              <div key={experience.id} ref={addToRefs}>
+                <ExperienceCard {...experience} />
+              </div>
             ))}
+          </div>
         </div>
-
-    </motion.div>
-  )
-}
-
-export default WorkExperience
+    )
+    
+      
+      
+  }
+  
+  export default WorkExperience;

@@ -1,6 +1,7 @@
 import { CodeBracketIcon, CodeBracketSquareIcon, FolderIcon } from '@heroicons/react/24/solid'
 import { motion } from 'framer-motion'
 import React from 'react'
+import { SocialIcon } from 'react-social-icons'
 
 type Props = {
   id: string;
@@ -14,18 +15,15 @@ type Props = {
 function ExperienceCard({id, date, title, description, stack, githublink}: Props) {
   return (
     <div className="flex flex-wrap justify-center" id="repos">
-      <motion.div 
-        whileHover={{ scale: 1.07 }}
-        transition={{ duration: 0.1 }}
-        className='flex flex-col p-6 bg-zinc-800 hover:bg-zinc-700 shadow-md hover:shadow-xl space-y-4 cursor-pointer transform rounded-lg transition-all ease-in-out duration-100' 
-        id="card1"
+      <div
+        className='flex flex-col p-6 bg-zinc-800 shadow-md space-y-4 rounded-lg' 
       >
-        <div className='flex justify-between' id="cardhead">
-          <h3 className='text-2xl font-bold text-white'>{id}</h3>
-          <a href={githublink} target='_blank' rel='noopener noreferrer'>
-            <CodeBracketSquareIcon className='w-10 h-10 text-white hover:animate-pulse'/>
-          </a>
+        <div className='flex items-center justify-center md:items-start md:flex-row' id="cardhead">
+          {/* <h3 className='px-7 py-8 text-4xl font-bold text-white hover:text-[#f7ab0a] transition-colors duration-200'>{id}</h3> */}
+          <SocialIcon url={githublink} fgColor="#f7ab0a" bgColor="transparent" style={{ width: 100, height: 100 }} className="transform hover:scale-125 transition-transform duration-200" />
         </div>
+
+
         <p className='text-sm text-gray-300' id="dateupdated">
           Last updated: {date}
         </p>
@@ -40,7 +38,7 @@ function ExperienceCard({id, date, title, description, stack, githublink}: Props
             <span key={index}>{tech}</span>
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }

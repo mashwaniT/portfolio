@@ -1,122 +1,60 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useSprings, animated, to as interpolate } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
+import Image from 'next/image';
+import BackgroundCircles from './BackgroundCircles';
 
+const skillsData = [
+  { name: 'React', image: '/react-original.svg' },
+  { name: 'JavaScript', image: '/javascript-original.svg' },
+  { name: 'Python', image: '/python-original.svg' },
+  { name: 'C', image: '/c-original.svg' },
+  { name: 'CPP', image: '/cplusplus-original.svg' },
+  { name: 'Bash', image: '/bash-plain.svg' },
+  { name: 'Git', image: '/git-original.svg' },
+  { name: 'Next', image: '/nextjs-original.svg' },
+  { name: 'Pandas', image: '/pandas-original.svg' },
+  { name: 'Tailwind', image: '/tailwindcss-plain.svg' },
+  { name: 'Typescript', image: '/typescript-original.svg' },
+  { name: 'Vim', image: '/vim-original.svg' },
 
-
-const skills = [
-  {
-    name: 'React',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png',
-  },
-  {
-    name: 'JavaScript',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
-  },
-  {
-    name: 'TypeScript',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg',
-  },
-  {
-    name: 'Next.js',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg',
-  },
-  {
-    name: 'Tailwind CSS',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg',
-  },
+  { name: 'CSS', image: '/css3-original.svg' },
+  { name: 'Firebase', image: '/firebase-plain.svg' },
+  { name: 'Java', image: '/java-original.svg' },
+  { name: 'Linux', image: '/linux-original.svg' },
+  { name: 'Jupyter', image: '/jupyter-original.svg' },
+  { name: 'SQL', image: '/mysql-original.svg' },
+  { name: 'Node', image: '/nodejs-original.svg' },
+  { name: 'Numpy', image: '/numpy-original.svg' },
+  { name: 'Opencv', image: '/opencv-original.svg' },
+  // Add more skills as needed
 ];
 
-const to = (i: number) => ({
-  x: Math.random() * 100 - 10, 
-  y: i * -10,
-  scale: 1,
-  rot: -20 + Math.random() * 50, 
-  delay: i * 100,
-})
-
-const from = (_i: number) => ({
-  x: Math.random() * 100 - 10, 
-  rot: -20 + Math.random() * 50, 
-  scale: 1.5,
-  y: -1000,
-})
-
-const trans = (r: number, s: number) =>
-  `perspective(1500px) rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
-
-function Skills() {
-  const SkillsSectionRef = React.useRef(null);
-  
-
-  const [gone] = useState(() => new Set())
-  const [props, api] = useSprings(skills.length, i => ({
-    ...to(i),
-    from: from(i),
-  })) 
-
-  const bind = useDrag(({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
-    const trigger = velocity > 0.2 
-    const dir = xDir < 0 ? -1 : 1 
-    if (!down && trigger) gone.add(index) 
-    api.start(i => {
-      if (index !== i) return 
-      const isGone = gone.has(index)
-      const x = isGone ? (200 + window.innerWidth) * dir : down ? mx : 0 
-      const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0) 
-      const scale = down ? 1.1 : 1 
-      return {
-        x,
-        rot,
-        scale,
-        delay: undefined,
-        config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 },
-      }
-    })
-    if (!down && gone.size === skills.length)
-      setTimeout(() => {
-        gone.clear()
-        api.start(i => to(i))
-      }, 600)
-  })
-
+const Skills: React.FC = () => {
   return (
-    <div className='h-full py-20 flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly align-middle mx-auto items-center'>
-      <h3 className='uppercase absolute top-24  tracking-[20px] text-gray-500 text-2xl'>
-            Skills
-        </h3>
-        <div className="relative w-full flex justify-center items-center h-screen">
-  
-  {props.map(({ x, y, rot, scale }, i) => (
-            <animated.div
-            key={i}
-            className="absolute"
-            {...bind(i)}
-            style={{
-              transform: interpolate([rot, scale], trans),
-              x,
-              y,
-              width: '300px',
-              height: '400px',
-              backgroundColor: '#fff',
-              backgroundImage: `url(${skills[i].image})`,
-              backgroundSize: 'cover',
-              borderRadius: '10px',
-              boxShadow: '0px 10px 30px -5px rgba(0, 0, 0, 0.3)',
-            }}
-          >
-            <div
-              className="w-full h-full flex items-end justify-center text-white text-2xl bg-gradient-to-t from-black/60 to-transparent p-6"
-            >
-              {skills[i].name}
-            </div>
-          </animated.div>
-        ))}
-      </div>
+    <div className='min-h-screen flex flex-col overflow-hidden justify-start items-center mx-auto'>
+  <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl z-10 text-center mt-24'>
+    Skills
+  </h3>
+    <div className="flex flex-wrap justify-center mt-24">
+      {skillsData.map((skill, index) => (
+        <div key={index} className="m-4">
+          <div className="rounded-full w-24 h-24 relative  mb-2">
+            <Image
+              className="rounded-full transform hover:scale-125 transition-transform duration-200"
+              src={skill.image}
+              alt={skill.name}
+              layout="fill"
+              objectFit="contain"
+            />
+            {/* <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
+              <p className="text-white text-center">{skill.name}</p>
+            </div> */}
+          </div>
+        </div>
+      ))}
     </div>
-    
-        )
-      }
-      
-      export default Skills
-      
+    </div>
+  );
+};
+
+
+export default Skills;

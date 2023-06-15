@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 function AnimatedIcons() {
   return (
-    <header className='flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
+    <header className='flex items-start justify-between max-w-7xl mx-auto xl:items-center'>
       <motion.div
         initial={{
           x: -500,
@@ -25,9 +25,9 @@ function AnimatedIcons() {
         className="flex flex-row items-center"
       >
         {/* Social Icons */}
-        <SocialIcon url="https://www.github.com" fgColor="gray" bgColor="transparent" />
-        <SocialIcon url="https://www.linkedin.com" fgColor="gray" bgColor="transparent" />
-        <SocialIcon url="https://www.youtube.com" fgColor="gray" bgColor="transparent" />
+        <SocialIcon url="https://github.com/mashwaniT/" target='_blank' rel='noopener noreferrer' fgColor="gray" bgColor="transparent" />
+        <SocialIcon url="https://www.linkedin.com" target='_blank' rel='noopener noreferrer' fgColor="gray" bgColor="transparent" />
+        <SocialIcon url="https://www.youtube.com" target='_blank' rel='noopener noreferrer' fgColor="gray" bgColor="transparent" />
       
       
       </motion.div>
