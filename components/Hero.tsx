@@ -16,8 +16,8 @@ function Hero({aboutRef, experienceRef, skillsRef, projectsRef}: Props) {
     const [text, count] = useTypewriter({
         words: [
             "Hi, I'm Taha",
-            "computer science",
-            "<aspiring developer />",
+            "Code weaver and digital craftsman",
+            "Creating digital magic, one keystroke at a time",
         ],
         loop: true,
         delaySpeed: 2000,
@@ -48,9 +48,9 @@ function Hero({aboutRef, experienceRef, skillsRef, projectsRef}: Props) {
 
         <div className='pt-5'>
             <button className='heroButton' onClick={() => scrollToSection(aboutRef)}>About</button>
-            <button className='heroButton' onClick={() => scrollToSection(experienceRef)}>Experience</button>
+            <button className='heroButton' onClick={() => scrollToSection(experienceRef)}>Projects</button>
             <button className='heroButton' onClick={() => scrollToSection(skillsRef)}>Skills</button>
-            <button className='heroButton' onClick={() => scrollToSection(projectsRef)}>Projects</button>
+            <button className='heroButton' onClick={() => scrollToSection(projectsRef)}>Endeavours</button>
             
         </div>
 

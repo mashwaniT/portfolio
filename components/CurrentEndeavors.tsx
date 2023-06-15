@@ -42,25 +42,19 @@ const currentEndeavorsData: Endeavor[] = [
 function CurrentEndeavors({}: Props) {
     return (
       <motion.div
-      initial={{
-        opacity: 0
-    }}
-    whileInView={{
-        opacity: 1
-    }}
-    transition={{
-        duration: 1.5
-    }}
-    className='min-h-screen flex flex-col overflow-hidden justify-start items-center mx-auto'>
+        className='min-h-screen flex flex-col overflow-hidden justify-start items-center mx-auto'>
+        
           <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl z-10 text-center mt-24'>
             Endeavours
           </h3>
   
-        <div className='mt-24 mb-52 xl:mt-24 lg:mt-24  w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 p-10'>
+        <motion.div
+
+        className='mt-24 mb-52 xl:mt-24 lg:mt-24  w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 p-10'>
           {currentEndeavorsData.map((endeavor) => (
             <EndeavorCard key={endeavor.id} {...endeavor} />
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     )
   }

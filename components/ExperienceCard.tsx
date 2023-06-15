@@ -2,6 +2,7 @@ import { CodeBracketIcon, CodeBracketSquareIcon, FolderIcon } from '@heroicons/r
 import { motion } from 'framer-motion'
 import React from 'react'
 import { SocialIcon } from 'react-social-icons'
+import { useInView } from 'react-intersection-observer'
 
 type Props = {
   id: string;
@@ -13,8 +14,22 @@ type Props = {
 }
 
 function ExperienceCard({id, date, title, description, stack, githublink}: Props) {
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: false,  // Change to false if you want the animation to trigger again whenever it comes into view
+  });
+
   return (
-    <div className="flex flex-wrap justify-center" id="repos">
+    <div ref={ref}>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.5 }}
+        transition={{
+        duration: 1,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01]
+        }}
+        className="flex flex-wrap justify-center" id="repos">
       <div
         className='flex flex-col p-6 bg-zinc-800 shadow-md space-y-4 rounded-lg' 
       >
@@ -39,7 +54,9 @@ function ExperienceCard({id, date, title, description, stack, githublink}: Props
           ))}
         </div>
       </div>
+    </motion.div>
     </div>
+    
   )
 }
 

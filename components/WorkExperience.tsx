@@ -16,7 +16,7 @@ interface Experience {
 const experienceData: Experience[] = [
     {
         id: "01",
-        date: "2023-05",
+        date: "2023-06",
         title: "Personal Portfolio Website",
         description: "A web app using React Typescript with NextJS for SSR and SEO.",
         stack: ["typescript", "react", "nextjs", "tailwindcss"],
@@ -45,41 +45,40 @@ type Props = {}
 
 
 const WorkExperience = () => {
-    const cardsRefs = useRef([]);
-    cardsRefs.current = [];
+    // const cardsRefs = useRef([]);
+    // cardsRefs.current = [];
   
-    const addToRefs = (el) => {
-      if (el && !cardsRefs.current.includes(el)) {
-        cardsRefs.current.push(el);
-      }
-    };
+    // const addToRefs = (el) => {
+    //   if (el && !cardsRefs.current.includes(el)) {
+    //     cardsRefs.current.push(el);
+    //   }
+    // };
 
-    const [ref, inView] = useInView({
-        triggerOnce: false,
-    })
+    // const [ref, inView] = useInView({
+    //     triggerOnce: false,
+    // })
   
-    useEffect(() => {
-        if (inView) {
-            gsap.from(cardsRefs.current, {
-                opacity: 0,
-                duration: 1,
-                ease: "power1.out",
-                stagger: 0.4
-              });
-        }
+    // useEffect(() => {
+    //     if (inView) {
+    //         gsap.from(cardsRefs.current, {
+    //             opacity: 0,
+    //             duration: 1,
+    //             ease: "power1.out",
+    //             stagger: 0.4
+    //           });
+    //     }
       
-    }, [inView]);
+    // }, [inView]);
   
     return (
         <div
-          ref={ref}
           className='min-h-screen flex flex-col overflow-hidden justify-start items-center mx-auto'>
           <h3 className='uppercase tracking-[20px] text-gray-500 text-2xl z-10 text-center mt-24'>
-            Experience
+            Projects
           </h3>
           <div className=' w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 p-14'>
             {experienceData.map((experience, index) => (
-              <div key={experience.id} ref={addToRefs}>
+              <div key={experience.id} >
                 <ExperienceCard {...experience} />
               </div>
             ))}
