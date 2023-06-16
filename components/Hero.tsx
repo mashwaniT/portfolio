@@ -2,7 +2,7 @@ import React from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles';
 import Link from 'next/link';
-import Animation from './Animation';
+import Image from 'next/image';
 
 
 type Props = {
@@ -24,19 +24,26 @@ function Hero({aboutRef, experienceRef, skillsRef, projectsRef}: Props) {
     });
 
     const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-        ref.current.scrollIntoView({ behavior: 'smooth' });
-        };
+        if (ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    
     
 
   return (
     <div className='relative h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
         {/* <Animation className="absolute inset-0 z-0 mt-20" /> new */}
         <BackgroundCircles />
-        <img
-            className='relative rounded-full h-32 w-32  mx-auto object-cover'
-            src='https://media.licdn.com/dms/image/D5603AQGkhxgEDG_nvg/profile-displayphoto-shrink_800_800/0/1682739194662?e=1689206400&v=beta&t=wmjdQ3hNCZvSKxJ7gooS63LChsPyjiFC_Vo6n2P3Ujw'
-            alt='batman'
+        <div className="relative w-32 h-32 overflow-hidden rounded-full">
+        <Image
+            src="/taha.jpeg"
+            alt="Taha"
+            layout="fill"  // this will make the image take the full width/height of its parent
+            objectFit="cover"  // this ensures the image scales nicely
         />
+        </div>
+
         <div className='z-20'>
             <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>
                 Software Developer

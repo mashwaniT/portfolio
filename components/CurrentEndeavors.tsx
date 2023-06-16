@@ -39,7 +39,7 @@ const currentEndeavorsData: Endeavor[] = [
     
   ];
   
-function CurrentEndeavors({}: Props) {
+function CurrentEndeavors() {
     return (
       <motion.div
         className='min-h-screen flex flex-col overflow-hidden justify-start items-center mx-auto'>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useTrail, a } from '@react-spring/web';
-import Animation from './Animation';
 import { motion } from 'framer-motion'
 
 const items = [
